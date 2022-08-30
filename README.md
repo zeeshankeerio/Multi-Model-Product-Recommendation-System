@@ -6,23 +6,25 @@ A well-developed recommendation system will help businesses improve their shoppe
 
 The recommendation system, We have designed below is based on the journey of a new customer from the time he/she lands on the business’s website for the first time to when he/she makes repeat purchases.
 
-The recommendation system is designed in 3 parts
 
-* **Recommendation system part I:** Product pupularity based system targetted at new customers
+* **Recommendation system part:** Product pupularity based system targetted at new customers
 
-* **Recommendation system part II:** Model-based collaborative filtering system based on customer's purchase history and ratings provided by other users who bought items similar items
+* **Recommendation system part:** Model-based collaborative filtering system based on customer's purchase history and ratings provided by other users who bought items similar items
 
-* **Recommendation system part III:** When a business is setting up its e-commerce website for the first time withou any product rating
+* **Recommendation system part:** When a business is setting up its e-commerce website for the first time withou any product rating
 
 When a new customer without any previous purchase history visits the e-commerce website for the first time, he/she is recommended the most popular products sold on the company's website. Once, he/she makes a purchase, the recommendation system updates and recommends other products based on the purchase history and ratings provided by other users on the website. The latter part is done using collaborative filtering techniques.
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
 <div class="toc"><ul class="toc-item"><li><span><a href="#Introduction" data-toc-modified-id="Introduction-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></span></li><li><span><a href="#Importing-Libraries" data-toc-modified-id="Importing-Libraries-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Importing Libraries</a></span></li><li><span><a href="#Loading-Datasets" data-toc-modified-id="Loading-Datasets-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Loading Datasets</a></span></li><li><span><a href="#Exploratory-Data-Analysis" data-toc-modified-id="Exploratory-Data-Analysis-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Exploratory Data Analysis</a></span></li><li><span><a href="#Recommender-Systems" data-toc-modified-id="Recommender-Systems-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Recommender Systems</a></span><ul class="toc-item"><li><span><a href="#Popularity-Based-Recommender" data-toc-modified-id="Popularity-Based-Recommender-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>Popularity-Based Recommender</a></span></li><li><span><a href="#Collaborative-Recommender" data-toc-modified-id="Collaborative-Recommender-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>Collaborative Recommender</a></span><ul class="toc-item"><li><span><a href="#SVD:-Matrix-Factorization-Based-Algorithm" data-toc-modified-id="SVD:-Matrix-Factorization-Based-Algorithm-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>SVD: Matrix Factorization Based Algorithm</a></span></li></ul></li><li><span><a href="#Hybrid-Recommender" data-toc-modified-id="Hybrid-Recommender-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>Item to item based recommendation system based on product description</a></span></li></ul></li><li><span><a href="#Conclusion" data-toc-modified-id="Conclusion-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Conclusion</a></span></li></ul></div>
 ## Data Exploration
- ![33](https://user-images.githubusercontent.com/51040406/187420755-af9e158a-03fc-42a4-95f2-91610f325fd2.png)
+
+![33](https://user-images.githubusercontent.com/51040406/187420755-af9e158a-03fc-42a4-95f2-91610f325fd2.png)
+
 ![333](https://user-images.githubusercontent.com/51040406/187421087-69ae718a-0f1b-4d5d-90a0-3a282e5079e2.png)
 
- ![22](https://user-images.githubusercontent.com/51040406/187420769-054b723a-1f21-41b1-9399-5a03e6aa689c.png)
+![22](https://user-images.githubusercontent.com/51040406/187420769-054b723a-1f21-41b1-9399-5a03e6aa689c.png)
+
 ![333](https://user-images.githubusercontent.com/51040406/187421112-df5e854a-be6b-4f82-b459-601045aa47fd.png)
 
 ## Recommendation System - Part I
@@ -97,46 +99,23 @@ Since data is too huge, due to that colab(free version) wasn't able to process i
 
 Applicable when business is setting up its E-commerce website for the first time
 
-product_descriptions = pd.read_csv('product_descriptions.csv')
-product_descriptions.shape
-
-
-In case a word appears in multiple clusters, the algorithm chooses the cluster with the highest frequency of occurance of the word.
-
-* **Keyword : **water
-
-show_recommendations("water")
-
 Once a cluster is identified based on the user's search words, the recommendation system can display items from the corresponding product clusters based on the product descriptions.
 
 ## Evaluation of all models
 
 #### Popularity based Model
 
-import sklearn.metrics as metric
-from math import sqrt
-MSE = metric.mean_squared_error(pred_df['true_ratings'], pred_df['predicted_ratings'])
-print('The RMSE value for Recommender model is', sqrt(MSE))
+The RMSE value for Recommender model is 1.3078273121694615
 
-#### Collaborative Based Filtering
-
-print(len(testset))
-type(testset)
 
 #### KNN with means
+RMSE: 1.0561
+1.0561184327784499
 
-# Evalute on test set
-test_pred = model.test(testset)
-test_pred[0]
-
-# compute RMSE
-accuracy.rmse(test_pred)
 
 #### SVD
-
-# Use the "best model" for prediction
-gs.test(testset)
-accuracy.rmse(gs.test(testset))
+RMSE: 0.8718
+0.8717742852178509                         
 
 SVD has much better results over others
 
