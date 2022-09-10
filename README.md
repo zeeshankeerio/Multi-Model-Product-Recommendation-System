@@ -21,6 +21,9 @@ When a new customer without any previous purchase history visits the e-commerce 
 
 ## Data Exploration
 
+We have used Amazon review data as well, link to the data source given below:
+https://www.kaggle.com/datasets/skillsmuggler/amazon-ratings
+
 ![33](https://user-images.githubusercontent.com/51040406/187420755-af9e158a-03fc-42a4-95f2-91610f325fd2.png)
 
 ![333](https://user-images.githubusercontent.com/51040406/187421087-69ae718a-0f1b-4d5d-90a0-3a282e5079e2.png)
